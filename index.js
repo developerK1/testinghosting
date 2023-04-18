@@ -11,10 +11,10 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.static('public'))
 
 const db = mysql.createConnection({
-	host : "localhost",
-	user : "root",
-	password : "",
-	database : "nodemyslq"
+	host : " localhost:3306",
+	user : "maobate1_test",
+	password : "mytestphp2021",
+	database : "maobate1_nodemyslq"
 })
 
 db.connect((err)=>{
@@ -40,7 +40,7 @@ app.get('/', (req, res)=>{
 		
 	});
 	
-
+//mytestphp2021
 })
 
 app.get('/about', (req, res)=>{
