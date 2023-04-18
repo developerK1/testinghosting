@@ -27,7 +27,7 @@ db.connect((err)=>{
 
 
 app.get('/', (req, res)=>{
-	db.query("SELECT * FROM `list`", (err, results)=>{
+	/*db.query("SELECT * FROM `list`", (err, results)=>{
 		
 		
 		let data = JSON.stringify(results);
@@ -38,7 +38,9 @@ app.get('/', (req, res)=>{
 			console.log("data coudnt be fetch at this moment");
 		}			
 		
-	});
+	});*/
+	
+	res.render("test", {title:"index"});
 	
 //mytestphp2021
 })
