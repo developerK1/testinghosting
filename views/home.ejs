@@ -1,0 +1,45 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+
+<% data.forEach((item)=>{ %>
+    <% const id = item.id %>
+	<h3><%= item.name%></h3>
+    <button class="update" onclick="updated(<%=id %>,this)";>Edit</button>
+    <button class="delete" onclick="transhOut(<%=id %>)";>Delete</button>
+<%})%>
+
+
+<form action="createlist" method="POST">
+	<input type="text" placeholder="enter your name" name="name"/>
+	<button>Submit</button>
+</form>
+
+
+
+<script>
+
+    
+function updated(id,btn){
+   
+    
+    const currentElement = btn.previousElementSibling;
+    let form =  `
+        <form action="editelist/${id}" method="POST">
+            <input type="text" placeholder="${currentElement.innerText}" name="name"/>
+            <button>Update</button>
+        <form>
+    `;
+    
+    btn.style.opacity = "0";
+    btn.nextElementSibling.style.opacity = "0";
+    
+    currentElement.innerHTML = form;
+}
+
+function transhOut(id){
+   window.location= `delete/${id}`;
+}
+
+</script>
+<%- include('../partials/footer.ejs') %>
